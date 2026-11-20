@@ -1,0 +1,5 @@
+,champion,candidate,difference
+accuracy,0.75,0.7448,-0.0052
+precision,0.5556,0.5488,-0.0068
+recall,0.7895,0.7895,0.0
+f1_score,0.6522,0.6475,-0.0047

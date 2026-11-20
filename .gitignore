@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+node_modules/
+dist/
+.env
+artifacts/*.joblib
+artifacts/*.json
+mlruns/
+.DS_Store
+
+# Local databases
+mlflow.db
+artifacts/*.db
+datasets/raw/creditcard_2023.csv

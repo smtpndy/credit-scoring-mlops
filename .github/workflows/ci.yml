@@ -1,0 +1,76 @@
+
+name: Credit-Fraud MLOps CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      # 2. Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # 3. Install backend dependencies
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      # 4. Train ML models
+      - name: Train credit and fraud models
+        run: |
+          python -m src.train_credit
+          python -m src.train_fraud
+
+      # 4b. Run monitoring + retraining workflow (validate, evaluate, retrain, quality gate)
+      - name: Run monitoring and retraining workflow
+        run: python -m src.run_workflow
+
+      # 5. Run backend tests (API tests + monitoring/quality-gate tests)
+      - name: Run tests
+        run: python -m pytest -v
+
+      # 6. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      # 7. Install frontend dependencies
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      # 8. Build React frontend
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+      # 9. Build backend Docker image
+      - name: Build backend Docker image
+        run: |
+          docker build -t credit-fraud-backend:ci -f Dockerfile .
+
+      # 10. Build frontend Docker image
+      - name: Build frontend Docker image
+        run: |
+          docker build -t credit-fraud-frontend:ci ./frontend

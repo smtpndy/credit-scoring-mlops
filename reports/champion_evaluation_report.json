@@ -1,0 +1,38 @@
+{
+    "model": "champion (existing credit model)",
+    "positive_class": "bad credit risk",
+    "new_batch_metrics": {
+        "rows": 8,
+        "accuracy": 0.75,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "confusion_matrix": [
+            [
+                3,
+                2
+            ],
+            [
+                0,
+                3
+            ]
+        ]
+    },
+    "holdout_metrics": {
+        "rows": 192,
+        "accuracy": 0.75,
+        "precision": 0.5556,
+        "recall": 0.7895,
+        "f1_score": 0.6522,
+        "confusion_matrix": [
+            [
+                99,
+                36
+            ],
+            [
+                12,
+                45
+            ]
+        ]
+    }
+}

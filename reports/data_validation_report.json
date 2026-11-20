@@ -1,0 +1,14 @@
+{
+    "rows": 8,
+    "columns": 22,
+    "missing_values": {},
+    "duplicate_rows": 0,
+    "duplicate_ids": 0,
+    "target_distribution": {
+        "bad_credit(0)": 3,
+        "good_credit(1)": 5
+    },
+    "warnings": [],
+    "errors": [],
+    "status": "PASSED"
+}

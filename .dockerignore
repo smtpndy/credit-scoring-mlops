@@ -1,0 +1,15 @@
+.git
+.github
+credit/
+.venv/
+venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+mlruns/
+mlflow.db
+artifacts/*.db
+frontend/node_modules/
+node_modules/
+.env

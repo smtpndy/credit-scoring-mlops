@@ -1,0 +1,43 @@
+{
+    "candidate_model_path": "artifacts/candidate/credit_candidate.joblib",
+    "old_training_rows": 800,
+    "new_batch_rows": 8,
+    "total_training_rows": 808,
+    "holdout_metrics": {
+        "rows": 192,
+        "accuracy": 0.7448,
+        "precision": 0.5488,
+        "recall": 0.7895,
+        "f1_score": 0.6475,
+        "confusion_matrix": [
+            [
+                98,
+                37
+            ],
+            [
+                12,
+                45
+            ]
+        ]
+    },
+    "new_batch_metrics": {
+        "rows": 8,
+        "accuracy": 0.75,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "confusion_matrix": [
+            [
+                3,
+                2
+            ],
+            [
+                0,
+                3
+            ]
+        ]
+    },
+    "note": "new_batch_metrics is optimistic because the candidate trained on those rows",
+    "champion_file_unchanged": true,
+    "mlflow_run_id": "acac96e45a0d4ba7b7ddc523cca590bd"
+}

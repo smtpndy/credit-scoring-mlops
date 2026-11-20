@@ -1,0 +1,48 @@
+{
+    "selected_metric": "f1_score",
+    "rule_1": "candidate F1 must be higher than champion F1 by more than 0.0",
+    "rule_1_passed": false,
+    "rule_2": "candidate recall must not drop by more than 0.05",
+    "rule_2_passed": true,
+    "f1_gain": -0.0047,
+    "recall_change": 0.0,
+    "eligible_for_promotion": false,
+    "action": "KEEP existing champion",
+    "champion_overwritten": false,
+    "champion_metrics": {
+        "rows": 192,
+        "accuracy": 0.75,
+        "precision": 0.5556,
+        "recall": 0.7895,
+        "f1_score": 0.6522,
+        "confusion_matrix": [
+            [
+                99,
+                36
+            ],
+            [
+                12,
+                45
+            ]
+        ]
+    },
+    "candidate_metrics": {
+        "rows": 192,
+        "accuracy": 0.7448,
+        "precision": 0.5488,
+        "recall": 0.7895,
+        "f1_score": 0.6475,
+        "confusion_matrix": [
+            [
+                98,
+                37
+            ],
+            [
+                12,
+                45
+            ]
+        ]
+    },
+    "evaluated_on": "hold-out test set (192 rows)",
+    "candidate_mlflow_run_id": "acac96e45a0d4ba7b7ddc523cca590bd"
+}
